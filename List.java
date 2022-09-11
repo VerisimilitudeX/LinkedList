@@ -5,12 +5,16 @@ public class List {
     static int start;
     private static int prevIndex;
     private static Node prevNode;
+    private static int nextIndex;
+    private static Node nextNode;
 
     public static void add(Integer num, int start, int whereToStore) {
         // Initialize Node, and previous index and node
         Node n = new Node();
         prevIndex = -1;
         prevNode = null;
+        nextIndex = -1;
+        nextNode = null;
 
         // Set the data of the node to number the user inputted
         n.data = num;
@@ -39,14 +43,16 @@ public class List {
 
                     // Link the previous nodes pointer to the current node's lcoation in the list
                     prevNode.nextLocation = i;
+                    list[i].previousLocation = prevIndex;
                 }
+                break;
             }
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
         list = new Node[100];
-        start = 2;
+        start = 0;
 
         // Get user input
         Scanner sc = new Scanner(System.in);
@@ -69,6 +75,9 @@ public class List {
                     add(input, start, whereToStore);
                     System.out.println("Previous index: " + prevIndex + ", Previous Value: " + prevNode.data);
                     System.out.println("Next index: " + prevNode.nextLocation);
+                    if (nextNode != null) {
+                        System.out.println("Previous index: " + nextNode.previousLocation);
+                    }
                 } else {
                     add(input, start, start);
                 }
