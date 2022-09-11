@@ -3,11 +3,26 @@ import java.util.Scanner;
 public class List {
     private static Node[] list;
     static int start;
+    private static int prevIndex;
+    private static Node prevNode;
 
     public static void add(Integer num, int start, int whereToStore) {
         Node n = new Node();
+        prevIndex = -1;
+
         n.data = num;
-        list[whereToStore] = n;
+        for (int i = start; i < list.length; i++) {
+            if (list[i] != null) {
+                prevNode = list[i];
+                prevIndex = i;
+            } else if (list[i] == null && i == whereToStore) {
+                list[whereToStore] = n;
+            } /*
+               * else {
+               * System.out.println("Previous Element" + );
+               * }
+               */
+        }
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -19,20 +34,21 @@ public class List {
         boolean running = true;
         while (running) {
             for (int i = 0; i < 100; i++) {
-                sc = new Scanner(System.in);
-                System.out.println("Do you want to input another number? y/n");
-                String yesno = sc.nextLine();
-                if (yesno.equals("n")) {
-                    running = false;
-                    break;
-                }
                 System.out.println("\nEnter the next number: ");
                 int input = Integer.parseInt(sc.nextLine());
 
                 if (i != 0) {
+                    sc = new Scanner(System.in);
+                    System.out.println("Do you want to input another number? y/n");
+                    String yesno = sc.nextLine();
+                    if (yesno.equals("n")) {
+                        running = false;
+                        break;
+                    }
                     System.out.println("Index: ");
                     int whereToStore = Integer.parseInt(sc.nextLine());
                     add(input, start, whereToStore);
+                    System.out.println("Previous index: " + prevIndex + ", Previous Value: " + prevNode.data);
                 } else {
                     add(input, start, start);
                 }
