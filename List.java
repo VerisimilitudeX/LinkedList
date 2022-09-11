@@ -24,12 +24,13 @@ public class List {
             System.out.println("\nEnter the next number: ");
             int input = Integer.parseInt(sc.nextLine());
             add(input, start);
-            for (int j = start; j < list.length; j++) {
-                if (list[j] != null) {
-                    System.out.println(j + ":" + list[j].data);
-                }
-            }
         }
         sc.close();
+
+        for (int j = start; j < list.length; j++) {
+            if (list[j] != null) {
+                System.out.println(j + ":" + list[j].data);
+            }
+        }
     }
 }
