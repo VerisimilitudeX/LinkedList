@@ -9,6 +9,7 @@ public class List {
     public static void add(Integer num, int start, int whereToStore) {
         Node n = new Node();
         prevIndex = -1;
+        prevNode = null;
 
         n.data = num;
         for (int i = start; i < list.length; i++) {
