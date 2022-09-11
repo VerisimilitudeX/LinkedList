@@ -27,11 +27,7 @@ public class BasicList {
             int input = Integer.parseInt(sc.nextLine());
             add(input, start);
             for (int j = start; j < list.length; j++) {
-                if (j == list.length - 1) {
-                    System.out.print(j + ":" + list[j]);
-                } else {
-                    System.out.print(j + ":" + list[j] + ", ");
-                }
+                System.out.println(j + ":" + list[j]);
             }
         }
         sc.close();
