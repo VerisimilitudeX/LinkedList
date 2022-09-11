@@ -5,7 +5,6 @@ public class List {
     static int start;
     private static int prevIndex;
     private static Node prevNode;
-    private static int nextIndex;
     private static Node nextNode;
 
     public static void add(Integer num, int start, int whereToStore) {
@@ -13,7 +12,6 @@ public class List {
         Node n = new Node();
         prevIndex = -1;
         prevNode = null;
-        nextIndex = -1;
         nextNode = null;
 
         // Set the data of the node to number the user inputted
