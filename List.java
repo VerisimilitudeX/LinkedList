@@ -7,18 +7,37 @@ public class List {
     private static Node prevNode;
 
     public static void add(Integer num, int start, int whereToStore) {
+        // Initialize Node, and previous index and node
         Node n = new Node();
         prevIndex = -1;
         prevNode = null;
 
+        // Set the data of the node to number the user inputted
         n.data = num;
+
+        // Loop through the Nodes in the list of Nodes
         for (int i = start; i < list.length; i++) {
+
+            // If there is no value in the current node
             if (list[i] != null) {
+
+                // Set the previous node and index
+                // This value dynamically changes until it finds the node that is null and the
+                // user inputted index
                 prevNode = list[i];
                 prevIndex = i;
+
+                // If the node doesn't have a value set and is the index the user wants to store
+                // it in
             } else if (list[i] == null && i == whereToStore) {
+
+                // Set the node to the node with the value the user inputted
                 list[whereToStore] = n;
+
+                // If the currrent node isn't the first
                 if (prevNode != null) {
+
+                    // Link the previous nodes pointer to the current node's lcoation in the list
                     prevNode.nextLocation = i;
                 }
             }
