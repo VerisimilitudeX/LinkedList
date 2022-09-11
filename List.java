@@ -7,11 +7,10 @@ public class List {
     public static void add(Integer num, int start) {
         Node n = new Node();
         n.data = num;
-        boolean first = true;
         for (int i = start; i < list.length; i++) {
-            if (list[i] == null && first) {
+            if (list[i] == null) {
                 list[i] = n;
-                first = false;
+                break;
             }
         }
     }
