@@ -1,25 +1,24 @@
 import java.util.Scanner;
 
 public class BasicList {
-    private static Integer[] list;
+    private static Node[] list;
     static int start;
 
     public static void add(Integer num, int start) {
+        Node n = new Node();
+        n.data = num;
         boolean first = true;
         for (int i = start; i < list.length; i++) {
             if (list[i] == null && first) {
-                list[i] = num;
+                list[i] = n;
                 first = false;
             }
         }
     }
 
     public static void main(String[] args) {
-        list = new Integer[10];
+        list = new Node[10];
         start = 2;
-        for (Integer num : list) {
-            num = null;
-        }
 
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < 10; i++) {
@@ -27,7 +26,9 @@ public class BasicList {
             int input = Integer.parseInt(sc.nextLine());
             add(input, start);
             for (int j = start; j < list.length; j++) {
-                System.out.println(j + ":" + list[j]);
+                if (list[j] != null) {
+                    System.out.println(j + ":" + list[j].data);
+                }
             }
         }
         sc.close();
