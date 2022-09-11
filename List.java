@@ -18,11 +18,10 @@ public class List {
                 prevIndex = i;
             } else if (list[i] == null && i == whereToStore) {
                 list[whereToStore] = n;
-            } /*
-               * else {
-               * System.out.println("Previous Element" + );
-               * }
-               */
+                if (prevNode != null) {
+                    prevNode.nextLocation = i;
+                }
+            }
         }
     }
 
@@ -50,6 +49,7 @@ public class List {
                     int whereToStore = Integer.parseInt(sc.nextLine());
                     add(input, start, whereToStore);
                     System.out.println("Previous index: " + prevIndex + ", Previous Value: " + prevNode.data);
+                    System.out.println("Next index: " + prevNode.nextLocation);
                 } else {
                     add(input, start, start);
                 }
