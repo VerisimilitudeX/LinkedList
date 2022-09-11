@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BasicList {
+public class List {
     private static Node[] list;
     static int start;
 
