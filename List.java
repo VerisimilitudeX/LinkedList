@@ -19,6 +19,8 @@ public class List {
         // Set the data of the node to number the user inputted
         n.data = num;
 
+        n.nextLocation = -1;
+
         // Loop through the Nodes in the list of Nodes
         for (int i = start; i < list.length; i++) {
 
@@ -42,11 +44,19 @@ public class List {
                 if (prevNode != null) {
 
                     // Link the previous nodes pointer to the current node's lcoation in the list
-                    prevNode.nextLocation = i;
-                    list[i].previousLocation = prevIndex;
+                     list[i].previousLocation = prevIndex;
+                     prevNode.nextLocation = i;
                 }
                 break;
             }
+        }
+    }
+
+    private static void traverseLinkedList(int startIndex) {
+        int nextNodeIndex = startIndex;
+        while (list[nextNodeIndex].nextLocation != -1) {
+            System.out.println(list[nextNodeIndex].data);
+            nextNodeIndex = list[nextNodeIndex].nextLocation;
         }
     }
 
@@ -90,11 +100,13 @@ public class List {
             Thread.sleep(5);
         }
 
-        // Print all values in the list
+        /* Print all values in the list
         for (int j = start; j < list.length; j++) {
             if (list[j] != null) {
                 System.out.println(j + ": " + list[j].data);
             }
-        }
+        } */
+
+        traverseLinkedList(start);
     }
 }
