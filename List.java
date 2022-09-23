@@ -65,7 +65,7 @@ public class List {
         Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < list.length; i++) {
                 System.out.println("\nEnter the next number: ");
                 int input = Integer.parseInt(sc.nextLine());
 
