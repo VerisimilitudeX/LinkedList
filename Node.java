@@ -2,9 +2,11 @@ public class Node {
     public Integer data;
     public int nextLocation;
     public int previousLocation;
+    public static final int invalidIndexValue = -1;
+
     public Node() {
         data = null;
-        nextLocation = -1;
-        previousLocation = -1;
+        nextLocation = invalidIndexValue;
+        previousLocation = invalidIndexValue;
     }
 }

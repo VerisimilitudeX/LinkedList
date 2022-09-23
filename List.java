@@ -10,13 +10,13 @@ public class List {
     public static void add(Integer num, int start, int whereToStore) {
         // Initialize Node, and previous index and node
         Node n = new Node();
-        prevIndex = -1;
+        // -1 means that the node is not in the list
+        prevIndex = Node.invalidIndexValue;
         prevNode = null;
         nextNode = null;
 
         // Set the data of the node to number the user inputted
         n.data = num;
-        n.nextLocation = -1;
 
         // Loop through the Nodes in the list of Nodes
         for (int i = start; i < list.length; i++) {
